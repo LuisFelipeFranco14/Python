@@ -1,0 +1,8 @@
+Criar um ambiente virtual
+python -m venv nomedoambiente
+
+Executar o ambiente
+.\nomedoambiente\Scripts\activate
+
+Para saber o que foi instalado no projeto 
+pip freeze > requirements.txt
