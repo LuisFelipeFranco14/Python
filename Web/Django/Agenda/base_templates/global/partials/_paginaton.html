@@ -1,5 +1,5 @@
 {% if page_obj %}
-<div class="pagination">
+  <div class="pagination">
     <span class="step-links">
         {% if page_obj.has_previous %}
             <a href="?page=1&q={{ request.GET.q.strip }}">&laquo; first</a>
@@ -15,5 +15,5 @@
             <a href="?page={{ page_obj.paginator.num_pages }}&q={{ request.GET.q.strip }}">last &raquo;</a>
         {% endif %}
     </span>
-</div>
+  </div>
 {% endif %}
