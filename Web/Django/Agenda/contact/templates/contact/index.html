@@ -3,7 +3,7 @@
 {% if page_obj %}
   <div class="responsive-table">
     <table class="contacts-table">
-        <caption class="table-caption"> contacts </caption>
+        <caption class="table-caption"> <a class="table-link" href="{% url "contact:create"%}"> Add contacts </a> </caption>
         <thead>
             <tr class="table-row table-row-header">
                 <th class="table-header">ID</th>
