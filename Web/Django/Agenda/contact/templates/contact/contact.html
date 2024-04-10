@@ -23,15 +23,21 @@
       <div class="contact-links">
         <a class="btn btn-link" href="{% url 'contact:update' contact.id %}">Update</a>
 
+        <script type="text/javascript">
+          function showAlert(e){
+              var inputElement = document.getElementById("Confirmation")
+              if(confirm("Deseja excluir esse registro?")){
+                inputElement.value = 'yes'
+              }
+            }
+        </script>
+
         <form action="{% url 'contact:delete' contact.id %}" method="POST">
           {% csrf_token %}
-          {% if confirmation == 'no' %}
-            <input type="hidden" name="confirmation" value="yes">
-            <button class="btn btn-link btn-delete" type="submit">Confirma?</button>
-          {% else %}
-            <button class="btn btn-link btn-delete" type="submit">Delete</button>
-          {% endif %}
+          <input type="hidden" name="confirmation" id="Confirmation" value="no">
+          <button class="btn btn-link btn-delete" type="submit" id="DeleteButton" onclick="showAlert(event)">Delete</button>
         </form>
+
       </div>
     {% endif %}
 

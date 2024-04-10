@@ -25,6 +25,14 @@ class ContactForm(forms.ModelForm):
             'picture',
         )
 
+        widgets = {
+            "first_name": forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter your first name'}),
+            "last_name": forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter your last name'}),
+            "email": forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Enter your email'}),
+            "phone": forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Enter your phone number'}),
+            "description": forms.Textarea(attrs={'class': 'form-control', 'placeholder': 'Enter your description'})
+        }
+
     def clean(self):
         cleaned_data = self.cleaned_data
         first_name = cleaned_data.get('first_name')
