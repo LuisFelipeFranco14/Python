@@ -124,8 +124,8 @@ STATICFILES_DIRS = (
 )
 STATIC_ROOT = BASE_DIR / 'static' #collectstatic
 
-MEDIA_URL = 'media/' #arquivos enviados pelo usuáruio 
-MEDIA_ROOT = BASE_DIR / 'media' #arquivos enviados pelo usuáruio 
+MEDIA_URL = 'media/' #arquivos enviados pelo usuário 
+MEDIA_ROOT = BASE_DIR / 'media' #arquivos enviados pelo usuário 
 
 
 # Default primary key field type
