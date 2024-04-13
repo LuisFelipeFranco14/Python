@@ -1,3 +1,6 @@
+from django.shortcuts import render
+
+# Create your views here.
 from django.shortcuts import redirect, reverse
 from django.views.generic import ListView, DetailView
 from django.views import View
@@ -9,7 +12,7 @@ from .models import Pedido, ItemPedido
 
 from utils import utils
 
-# Create your views here.
+
 class DispatchLoginRequiredMixin(View):
     def dispatch(self, *args, **kwargs):
         if not self.request.user.is_authenticated:

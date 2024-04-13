@@ -1,19 +1,9 @@
 from django.db import models
-from django.contrib.auth.models import User
 
 # Create your models here.
-"""
-Pedido:
-        user - FK User
-        total - Float
-        status - Choices
-            ('A', 'Aprovado'),
-            ('C', 'Criado'),
-            ('R', 'Reprovado'),
-            ('P', 'Pendente'),
-            ('E', 'Enviado'),
-            ('F', 'Finalizado'),
-"""
+from django.db import models
+from django.contrib.auth.models import User
+
 
 class Pedido(models.Model):
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -35,18 +25,6 @@ class Pedido(models.Model):
     def __str__(self):
         return f'Pedido N. {self.pk}'
 
-"""
-        ItemPedido:
-            pedido - FK pedido
-            produto - Char
-            produto_id - Int
-            variacao - Char
-            variacao_id - Int
-            preco - Float
-            preco_promocional - Float
-            quantidade - Int
-            imagem - Char
-"""
 
 class ItemPedido(models.Model):
     pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE)
