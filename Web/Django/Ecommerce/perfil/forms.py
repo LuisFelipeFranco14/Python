@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from . import models
     
 class PerfilForm(forms.ModelForm):
+    cpf = forms.CharField(max_length=14, widget=forms.TextInput(attrs={'OnKeyPress':'formatar("###.###.###-##", this)'}), label="CPF")
     class Meta:
         model = models.Perfil
         fields = '__all__'

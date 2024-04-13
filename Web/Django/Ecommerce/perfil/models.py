@@ -53,7 +53,7 @@ class Perfil(models.Model):
                                    verbose_name='Usuário')
     idade = models.PositiveIntegerField()
     data_nascimento = models.DateField()
-    cpf = models.CharField(max_length=11, verbose_name='CPF')
+    cpf = models.CharField(max_length=14, verbose_name='CPF')
     endereco = models.CharField(max_length=50, verbose_name='Endereço')
     numero = models.CharField(max_length=5, verbose_name='Número')
     complemento = models.CharField(max_length=30)
@@ -110,7 +110,9 @@ class Perfil(models.Model):
             if cpf_salvo is not None and self.pk != perfil.pk:
                 error_messages['cpf'] = 'CPF já existe.'
 
-        if not valida_cpf(self.cpf):
+        cpf = self.cpf.replace('-', '').replace('.', '')
+        print(cpf)
+        if not valida_cpf(cpf):
             error_messages['cpf'] = 'Digite um CPF válido'
 
         if re.search(r'[^0-9]', self.cep) or len(self.cep) < 8:
