@@ -83,10 +83,8 @@ class AdicionarAoCarrinho(View):
                 quantidade_carrinho = variacao_estoque
 
             carrinho[variacao_id]['quantidade'] = quantidade_carrinho
-            carrinho[variacao_id]['preco_quantitativo'] = preco_unitario * \
-                quantidade_carrinho
-            carrinho[variacao_id]['preco_quantitativo_promocional'] = preco_unitario_promocional * \
-                quantidade_carrinho
+            carrinho[variacao_id]['preco_quantitativo'] = preco_unitario * quantidade_carrinho
+            carrinho[variacao_id]['preco_quantitativo_promocional'] = preco_unitario_promocional * quantidade_carrinho
         else:
             carrinho[variacao_id] = {
                 'produto_id': produto_id,
