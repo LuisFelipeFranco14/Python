@@ -1,0 +1,8 @@
+Site para criar diagramas UML
+https://www.yworks.com/yed-live/
+
+Tipos de relacionamentos
+Associação (seta preta)
+Congregação (diamante transparente)
+Composição (diamante negro)
+Dependência = Herança   (seta transparente)
