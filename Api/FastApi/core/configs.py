@@ -7,9 +7,9 @@ from sqlalchemy.orm.decl_api import DeclarativeMeta
 class Settings(BaseSettings):
     API_ROUTER_PRIMARY: str = '/api/Principal'
     DB_URL: str = 'postgresql+asyncpg://adaptus:Solution@localhost:5432/EsteiraPedidos' 
-    DBBaseModel = ClassVar[DeclarativeMeta] =  declarative_base()
+    DBBaseModel: ClassVar[str] =  declarative_base()
 
-    JWT_SECRET: str = 'YK1oDmqQvMU8ZWazIreABLfxhutYppTUCKMDnPIfLOE'
+    JWT_SECRET: str = '17cE8zLBlfTmDqUHcTfD6WICKDpFLaGfFS51uzwvGOA'
     """
     Como gerar Secrets no terminal 
     import secrets
