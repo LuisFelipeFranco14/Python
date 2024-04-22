@@ -39,7 +39,7 @@ class A(MonoState):
 
 
 if __name__ == "__main__":
-    m1 = MonoState(nome='Luiz')
-    m2 = A(sobrenome='Miranda')
+    m1 = MonoState(nome='Luis')
+    m2 = A(sobrenome='Franco')
     print(m1)
     print(m2)

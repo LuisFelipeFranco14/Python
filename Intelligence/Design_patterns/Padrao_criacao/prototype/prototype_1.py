@@ -41,7 +41,7 @@ class Address(StringReprMixin):
 
 if __name__ == "__main__":
 
-    luiz = Person('Luiz', 'Miranda')
+    luiz = Person('Luis', 'Franco')
     endereco_luiz = Address('Av. Brasil', '250A')
     luiz.add_address(endereco_luiz)
 
