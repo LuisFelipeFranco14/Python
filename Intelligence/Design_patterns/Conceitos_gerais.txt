@@ -6,3 +6,14 @@ Associação (seta preta)
 Congregação (diamante transparente)
 Composição (diamante negro)
 Dependência = Herança   (seta transparente)
+
+
+Padrão de Criação 
+Builder = Metódo utilizado para unificar informações existente pata vários objetos.
+Prototype = faz a mesma coisa que o builder, a diferença é que o Prototype faz a alteração diretamente no objeto utilizando 
+um clone para isso, já o builder ele cria uma função que faça isso.
+Singleton = Ele serve para instanciar apenas uma classe, aonde pode ser chamada sempre que for necessaria, sem a procupação com a criação 
+dos objetos dentro dessa classe.
+Monostate = Ele faz a mesma coisa que o singleton, mas obriga que a informações (estado) dos objetos sejam sempre as mesmas.
+abstract method = define uma interface para criar objetos, aonde as interfaces que você delegar o que melhopr para ser feito.
+
