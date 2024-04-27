@@ -15,5 +15,5 @@ um clone para isso, já o builder ele cria uma função que faça isso.
 Singleton = Ele serve para instanciar apenas uma classe, aonde pode ser chamada sempre que for necessaria, sem a procupação com a criação 
 dos objetos dentro dessa classe.
 Monostate = Ele faz a mesma coisa que o singleton, mas obriga que a informações (estado) dos objetos sejam sempre as mesmas.
-abstract method = define uma interface para criar objetos, aonde as interfaces que você delegar o que melhopr para ser feito.
+abstract method = define uma interface para criar objetos, aonde as interfaces que você delegar o que é melhor para ser feito.
 
