@@ -1,0 +1,39 @@
+Criar um ambiente virtual
+python -m venv nomedoambiente
+
+Executar o ambiente
+.\nomedoambiente\Scripts\activate
+
+Desativar o ambiente
+deactivate
+
+Comandos de instalação
+
+instalar o Django
+pip install django
+
+Pegar a ultima versão
+pip install --upgrade pip
+
+Para saber o que foi instalado no projeto 
+pip freeze > requirements.txt
+
+configurar .gitignore no django
+https://djangowaves.com/tips-tricks/gitignore-for-a-django-project/
+
+Comandos Django
+Criação Projeto
+django-admin startproject nomeprojeto .    
+
+Criação aplicação
+python manage.py startapp nomeaplicacao
+
+Criar superusuario
+python manage.py createsuperuser
+
+migração 
+python manage.py makemigrations
+python manage.py migrate
+
+Iniciando a aplicação
+python manage.py runserver
