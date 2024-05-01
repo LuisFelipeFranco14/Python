@@ -102,8 +102,8 @@ celerybeat-schedule.*
 # Environments 
 .env 
 .ambientevirtual 
-env/ 
 ambientevirtual/ 
+venv/ 
 ENV/ 
 env.bak/ 
 venv.bak/ 

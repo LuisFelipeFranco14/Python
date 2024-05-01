@@ -117,13 +117,13 @@ celerybeat-schedule
 *.sage.py
 
 # Environments
-.env
-.ambientevirtual
-ambientevirtual/
-ambientevirtual/
-ambientevirtual/
-env.bak/
-venv.bak/
+.env 
+.ambientevirtual 
+ambientevirtual/ 
+venv/ 
+ENV/ 
+env.bak/ 
+venv.bak/ 
 
 # Spyder project settings
 .spyderproject
