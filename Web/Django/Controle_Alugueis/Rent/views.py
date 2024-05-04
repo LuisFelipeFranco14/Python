@@ -2,15 +2,16 @@ from django.shortcuts import render, redirect
 from django.db.models import Q
 from .models import Immobile, ImmobileImage, Client
 from .forms import ClientForm, ImmobileForm, RegisterLocationForm
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-# def index(request):
-#     return render(request, 'rent/index.html')
+@login_required(login_url='profile_rent:login')
 def list_location(request):
     immobiles = Immobile.objects.filter(is_locate=False)
     context = {'immobiles': immobiles}
     return render(request, 'rent/list-location.html', context)
 
+@login_required(login_url='profile_rent:login')
 def form_client(request):
     form = ClientForm()
     if request.method == 'POST':
@@ -20,6 +21,7 @@ def form_client(request):
             return redirect('rent:list-location')   
     return render(request, 'rent/form-client.html', {'form': form})
 
+@login_required(login_url='profile_rent:login')
 def form_immobile(request):
     form = ImmobileForm() 
     if request.method == 'POST':
@@ -35,6 +37,7 @@ def form_immobile(request):
             return redirect('rent:list-location')   
     return render(request, 'rent/form-immobile.html', {'form': form})
 
+@login_required(login_url='profile_rent:login')
 def form_location(request, id):
     get_locate = Immobile.objects.get(id=id) ## pega objeto
 
@@ -57,6 +60,7 @@ def form_location(request, id):
     return render(request, 'rent/form-location.html', context)
 
 ## Relatório
+@login_required(login_url='profile_rent:login')
 def reports(request): ## Relatório de Alúgueis   
     immobile = Immobile.objects.all()
     
@@ -85,8 +89,17 @@ def reports(request): ## Relatório de Alúgueis
 
     return render(request, 'rent/reports.html', {'immobiles':immobile})
 
-def report_client(request): ## Relatório de Clientes   
-    return render(request, 'rent/report-client.html')
+@login_required(login_url='profile_rent:login')
+def report_client(request): ## Relatório de Clientes 
+    client = Client.objects.all()  
 
-def report_immobile(request): ## Relatório de Imóveis   
-    return render(request, 'rent/report-immobile.html')
+    get_name = request.GET.get('name')
+    get_email = request.GET.get('email') 
+
+    if get_email: ## Filtra por email do cliente
+        client = Client.objects.filter(email__icontains=get_email)
+        
+    if get_name: ## Filtra por nome do cliente
+        client = Client.objects.filter(name__icontains=get_name)
+        
+    return render(request, 'rent/report-client.html', {'clients':client})
