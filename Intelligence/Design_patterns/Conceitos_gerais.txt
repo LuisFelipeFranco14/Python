@@ -17,3 +17,61 @@ dos objetos dentro dessa classe.
 Monostate = Ele faz a mesma coisa que o singleton, mas obriga que a informações (estado) dos objetos sejam sempre as mesmas.
 abstract method = define uma interface para criar objetos, aonde as interfaces que você delegar o que é melhor para ser feito.
 
+Padrão Estrutural 
+
+Adapter = é um padrão de projeto estrutural que tem a intenção de permitir que duas classes que seriam incompatíveis trabalhem em conjunto
+através de um "adaptador". 
+exemplo: controle de video Game de duas marcas diferentes.
+
+Bridge = é um padrão de projeto estrutural que tem a intenção de desacoplar uma abstração da sua implementação, de modo que as duas
+possam variar e evoluir independentemente. 
+exemplo controle remoto de uma tv que pode ter variação iguais a uma rádio.
+
+Composite = é um padrão de projeto estrutural que permite que você utilize a composição para criar objetos em estruturas
+de árvores. O padrão permite aos clientes tratarem de maneira uniforme objetos individuais (Leaf) e composições de objetos (Composite).
+exemplo: guarda algum objeto dentro uma caixa, em que essa mesma caixa pode ir pra uma caixa maior.
+
+Decorator = é um padrão de projeto estrutural que permite que você adicione novos comportamentos em objetos ao colocá-los dentro de
+um "wrapper" (decorador) de objetos. Decoradores fornecem uma alternativa flexível ao uso de subclassespara a extensão de funcionalidades.
+exemplo: Cachorro quente com diversas variações, pois pode ter alguém que queira um cachorro quente sem salsicha ou com mais salsicha.
+
+Façade (Fachada) = é um padrão de projeto estrutural que tem a intenção de fornecer uma interface unificada para um conjunto de interfaces em um
+subsistema. Façade define uma interface de nível mais alto que torna o subsistema mais fácil de ser usado.
+exemplo: atualizar as inforamções de varias produtos com a mesma condição, como smartphone e Iphone em relação a temperatura.
+
+Flyweight = é um padrão de projeto estrutural que tem a intenção de usar compartilhamento para suportar eficientemente grandes quantidades
+de objetos de forma granular.
+exemplo: É usar informações de uma mesmo objeto e reutilizar essas inforamções em outros objetos e modificando o que preciso. Como o fulano
+que mora na casa 6 no bairro Brasil cep 0000000, ai vou reutilizar as informações para beltrano mas com a casa 10.
+
+Proxy = é um padrão de projeto estrutural que tem a intenção de fornecer um objeto substituto que atua como se fosse o objeto real que o código 
+cliente gostaria de usar. O proxy receberá as solicitações e terá controle sobre como e quando repassar tais solicitações ao objeto real.
+exemplo: criar logs, autenticar usuários, distribuir serviços, criar cache, criar e destruir objetos, adiar execuções e muito mais. Como
+você ter vários microserviços e o proxy escolher qual é melhor de ser acessado naquele instante, pois ele têm acesso aos objetos reais
+de cada microserviço.
+
+Padrão Comportamental
+Chain of responsibility (COR) = é um padrão comportamental que tem a intenção de evitar o acoplamento do remetente de
+uma solicitação ao seu receptor, ao dar a mais de um objeto a oportunidade de tratar a solicitação. Encadear os objetos receptores passando a 
+solicitação ao longo da cadeia até que um objeto a trate. 
+exemplo: têm solucação para grupo a,b,c,d,e mas não consegui ajudar o grupo f,g,h; Por conta disso fica num grupo sem solução.
+
+Command = tem intenção de encapsular uma solicitação como um objeto, desta forma permitindo parametrizar clientes com diferentes
+solicitações, enfileirar ou fazer registro (log) de solicitações e suportar operações que podem ser desfeitas.
+exemplo: Casa inteligente, ligar as luzes por comando de voz, mudar a cor da luz e etc.
+
+State = é um padrão comportamental que tem a intenção de permitir a um objeto mudar seu comportamento quando o seu estado interno muda.
+exemplo: formas de pagemnto, só que ao invés de criar vários if utiliza estados como estado pendente, estado aprovado e estado recusado. 
+
+Strategy = é um padrão de projeto comportamental que tem a intenção de definir uma família de algoritmos, encapsular cada uma delas e 
+torná-las intercambiáveis. Strategy permite que o algorítmo varie independentemente dos clientes que o utilizam.
+exemplo: porcentagem de desconto em um valor fixo.
+
+(GoF - Memento) = é um padrão de projeto comportamental que tem a intenção de permitir que você salve e restaure
+um estado anterior de um objeto originator sem revelar os detalhes da sua implementação e sem violar o encapsulamento.
+exemplo: Criação de backup para um estado anterior, tipo você erra em jogo e volta para o último estado salvo.
+
+Mediator = é um padrão de projeto comportamental que tem a intenção de definir um objeto que encapsula a forma como um conjunto de objetos
+interage. O Mediator promove o baixo acoplamento ao evitar que os objetos se refiram uns aos outros explicitamente e permite variar suas
+interações independentemente.
+exemplo: Sala de bate papo, aonde têm uma conversa para todos na sala, e você pode fazer uma conversa individual.
