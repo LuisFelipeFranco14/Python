@@ -37,3 +37,6 @@ python manage.py migrate
 
 Iniciando a aplicação
 python manage.py runserver
+
+criar dados fakes
+pip install faker
