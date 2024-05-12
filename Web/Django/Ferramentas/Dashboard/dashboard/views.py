@@ -3,15 +3,34 @@ from django.shortcuts import render
 from .models import Produto, Vendas, Vendedor
 from datetime import datetime
 from django.db.models import Sum
+import locale
 
 # Create your views here.
 def home(request):
     return render(request, 'home.html')
 
 def retorna_total_vendido(request):
+    locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
     total = Vendas.objects.all().aggregate(Sum('total'))['total__sum']
+    total = locale.currency(total, grouping=True, symbol=None)
     if request.method == "GET":
         return JsonResponse({'total': total})
+    
+def retorna_qtd_vendas(request):
+   count = Vendas.objects.all().count()
+   print(count) 
+   if request.method == "GET":
+        return JsonResponse({'count': count})
+   
+def retorna_media_venda(request):
+   count = Vendas.objects.all().count()
+   total = Vendas.objects.all().aggregate(Sum('total'))['total__sum']
+   media = total/count
+   locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
+   media = locale.currency(media, grouping=True, symbol=None)
+   print(count) 
+   if request.method == "GET":
+        return JsonResponse({'mediaVenda': media})
 
 def relatorio_faturamento(request):
     x = Vendas.objects.all()
