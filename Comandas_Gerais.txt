@@ -40,3 +40,7 @@ python manage.py runserver
 
 criar dados fakes
 pip install faker
+
+
+Executar todos os testes do unittest
+python -m unittest -v
