@@ -10,6 +10,7 @@
       {% csrf_token %}
       {{ form.as_p }}
       <button type="submit" class="btn btn-primary">Importar</button>
+      <a class="btn btn-success" href="{% url 'importer_export:exporter' %}" >Exportar</a>
     </form>
   
     {% comment %} Lista de Clientes Importados {% endcomment %}
