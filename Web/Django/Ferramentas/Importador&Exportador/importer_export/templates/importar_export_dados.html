@@ -1,6 +1,27 @@
 {% extends 'base.html' %}
 {% load static %}
 
+<script>
+  function enviarOpcao() {
+    var opcaoSelecionada = document.getElementById("combobox").value;
+    console.log(opcaoSelecionada)
+    $.ajax({
+      type: "GET",
+      url: "{% url 'importer_export:exporter' %}",
+      data: {
+        'combobox': opcaoSelecionada
+      },
+      success: function(response) {
+        document.getElementById("resultado").innerHTML = response;
+      },
+      error: function(error) {
+        console.log(error);
+      }
+    });
+  }
+</script>
+
+
 {% block title %}Importar Dados{% endblock %}
 
 {% block content %}
@@ -10,7 +31,9 @@
       {% csrf_token %}
       {{ form.as_p }}
       <button type="submit" class="btn btn-primary">Importar</button>
-      <a class="btn btn-success" href="{% url 'importer_export:exporter' %}" >Exportar</a>
+      {% comment %} <a class="btn btn-success" href="{% url 'importer_export:exporter'%}" >Exportar</a> {% endcomment %}
+      <a class="btn btn-success" href="enviarOpcao()" >Exportar</a>
+      <a class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#cadastro" >Cadastrar</a>
     </form>
   
     {% comment %} Lista de Clientes Importados {% endcomment %}
@@ -29,6 +52,8 @@
           <th>Número</th>
           <th>Estado</th>
           <th>Cidade</th>
+          <th>Deletar</th>
+          <th>Alterar</th>
         </tr>
       </thead>
       <tbody>
@@ -45,9 +70,47 @@
             <td>{{ cliente.clientes.numero }}</td>
             <td>{{ cliente.clientes.estado }}</td>
             <td>{{ cliente.clientes.cidade }}</td>
+            <td><a href="{% url 'importer_export:deletar' cliente.id%}">
+               <img src="{% static 'image/remove.png' %}" class="card-image" style="cursor:pointer;" width="30%" height="30%"> </a></td>
+            <td>&nbsp; <img src="{% static 'image/alter.png' %}" class="card-image" style="cursor:pointer;" width="30%" height="30%"></td>
           </tr>
         {% endfor %}
       </tbody>
     </table>
   </div>
+
+  <!-- Modal -->
+<div class="modal fade" id="cadastro" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastro de Clientes</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="{% url 'importer_export:criar' %}">
+          <div class="row">
+            <div class="col">
+              {% csrf_token %}
+                <div class="modal-footer">
+                  {{ fromclient }}
+                </div>
+              <div class="modal-footer">
+                {{ fromAddress }}
+              </div>
+            </div>
+          </div>
+          <div class="row">
+
+          <div class="modal-footer">
+              <button type="submit" class='btn btn-primary'>
+                    Enviar
+              </button>
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Fechar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

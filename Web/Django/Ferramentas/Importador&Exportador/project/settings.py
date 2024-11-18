@@ -122,6 +122,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATICFILES_DIRS = (
+    BASE_DIR / 'templates/static',
+)
+STATIC_ROOT = BASE_DIR / 'static' #collectstatic
+
+MEDIA_URL = 'media/' #arquivos enviados pelo usuário 
+MEDIA_ROOT = BASE_DIR / 'media' #arquivos enviados pelo usuário 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
